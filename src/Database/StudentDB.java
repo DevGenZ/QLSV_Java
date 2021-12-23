@@ -25,6 +25,26 @@ public class StudentDB {
             new FormQLSV().updateTable();
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            Connect.closeConnect(conn);
+        }
+    }
+
+    public static void editStudent(Student student) {
+        conn = Connect.getConnect();
+        try {
+            preStmt = conn.prepareStatement("UPDATE STUDENT SET NAME='?', AGE='?', ADDRESS='?', GPA='?' WHERE ID='?'");
+            preStmt.setString(1, student.getName());
+            preStmt.setByte(2, student.getAge());
+            preStmt.setString(3, student.getAddress());
+            preStmt.setDouble(4, student.getGPA());
+            preStmt.executeUpdate();
+
+            new FormQLSV().updateTable();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            Connect.closeConnect(conn);
         }
     }
 }
