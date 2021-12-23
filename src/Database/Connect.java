@@ -5,12 +5,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Connect {
-    private Connection conn;
-    private String DB_URL = "jdbc:sqlserver://localhost:1433;" + "databaseName=QLSV;" + "integratedSecurity=true;";
-    private String USER_NAME = "sa";
-    private String PASSWORD = "123456";
+    private static Connection conn;
+    private static String DB_URL = "jdbc:sqlserver://localhost:1433;" + "databaseName=QLSV;" + "integratedSecurity=true;";
+    private static String USER_NAME = "sa";
+    private static String PASSWORD = "123456";
 
-    public Connection getConnect() {
+    public static Connection getConnect() {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             conn = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
@@ -23,5 +23,15 @@ public class Connect {
         }
 
         return conn;
+    }
+
+    public static void closeConnect(Connection conn) {
+        try {
+            if (conn != null) {
+                conn.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
