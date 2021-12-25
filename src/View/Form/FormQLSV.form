@@ -107,7 +107,9 @@
                   </grid>
                   <gridbag weightx="0.0" weighty="0.0"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <text value="0"/>
+                </properties>
               </component>
               <vspacer id="74300">
                 <constraints>
@@ -155,7 +157,7 @@
                       <gridbag weightx="0.4" weighty="0.0"/>
                     </constraints>
                     <properties>
-                      <editable value="false"/>
+                      <editable value="true"/>
                     </properties>
                   </component>
                 </children>
@@ -181,7 +183,9 @@
                       </grid>
                       <gridbag weightx="0.4" weighty="0.0"/>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <text value="0"/>
+                    </properties>
                   </component>
                 </children>
               </grid>

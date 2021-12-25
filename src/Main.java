@@ -1,9 +1,7 @@
-import Database.Connect;
-
-import java.sql.Connection;
+import View.Form.FormLogin;
 
 public class Main {
     public static void main(String[] args) {
-        Connection conn = new Connect().getConnect();
+        new FormLogin();
     }
 }
